@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Plant Classifier</string>
+
+    <string name="cleavers_label">Cleavers</string>
+    <string name="maize_label">Maize</string>
+    <string name="scentless_mayweed_label">Scentless Mayweed</string>
+    <string name="cranesbill_label">Small-flowered Cranesbill</string>
+    <string name="chickweed_label">Common chickweed</string>
+    <string name="charlock_label">Charlock</string>
+    <string name="blackgrass_label">Blackgrass</string>
+    <string name="wheat_label">Common wheat</string>
+    <string name="fat_hen_label">Fat Hen</string>
+    <string name="loose_silky_bent_label">Loose Silky bent</string>
+    <string name="shepherds_purse_label">Shepherds Purse</string>
+
+    <string name="result_string"><b>Predicted class : %1$s</b>\n<i>Confidence : %2$s</i>\n\n<b>Actual class : %3$s.</b></string>
+    <string name="classify_label">Classify</string>
+    <string name="choose_image_label">Choose Image</string>
+</resources>
