@@ -33,17 +33,17 @@ An app that classifies a plant image using a Convolutional Neural Network traine
 <h2 id="tools_n_tech">Tools and Technology Used</h2>
 
 <h3>Google Colab</h3>
-//GOOGLE COLAB IMAGE
+<img src="/images/colab_logo.png" />
 <p>Colaboratory is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud. With Colaboratory you can write and execute code, save and share your analyses, and access powerful computing resources, all for free from your browser.</p>
 <p>Colaboratory works with all the major browsers and is free to use. All Colaboratory notebooks are stored in Google Drive. Colaboratory notebooks can be shared just as you would do with Google Docs or Sheets with just clicking the Share button.</p>
 <p>Colaboratory supports Python 2.7 and Python 3.6 and has all the popular machine learning and deep learning frameworks and packages already imported in the Colaboratory notebooks.</p>
 <p>Code is executed in a virtual machine dedicated to your Google account. Virtual machines are recycled when idle for a while, have a maximum lifetime enforced by the system.</p>
 <p>It is intended for interactive-use. Long-running background computations, particularly on GPUs, may be stopped.</p>
 
-//Colab environment image
+<img src="/images/colab_env.png" />
 
 <h3>TensorFlow</h3>
-//TensorFlow logo new
+<img src="/images/tf_logo.png" />
 <p>TensorFlow is an end-to-end open source machine learning platform. It has a comprehensible, flexible ecosystem of tools, libraries and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML powered applications.</p>
 <p>Why TensorFlow :</p>
 <ol>
@@ -55,9 +55,8 @@ For running the inference on mobile and edge devices, we have used TensorFlow Li
 <li><b>Powerful experimentation for research</b><br>
 Build and train state-of-the-art models without sacrificing speed or performance. TensorFlow gives you the flexibility and control with features like the Keras Functional API and Model Subclassing API for creating of complex topologies. Eager execution is used for easy prototyping and fast debugging.</li>
 </ol>
-<h3>Keras</h3>
 
-//Keras logo image
+<h3>Keras</h3>
 <p>Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK or Theano. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is the motto of Keras.</p>
 <p>Keras allows for easy and fast prototyping (through user friendliness, modularity and extensibility). It supports both convolutional neural networks and recurrent networks, as well as combinations of the two. It seamlessly runs on CPU and GPU architectures.</p>
 
@@ -71,17 +70,17 @@ A model is understood as a sequence or a graph of standalone, fully configurable
 
 <h2 id="sys_design">System Design</h2>
 <h3>Flow of system :-</h3>
-// CNN Architecture image
+<img src="/images/cnn_diagram.png" />
 
 <p>The above figure represents the architecture of the convolutional neural network model.</p>
 <p>The images present in the dataset are first loaded into the memory, fed to the CNN model with the appropriate input sizes, and then the model computes and processes the information present in the image and finally gives the output i.e which class the image belongs.</p>
 
-//TFLIte Architecture image
+<img src="/images/tflite.png" />
 <p>The above figure represents the architecture of the deployment of the trained CNN model to the Android app using TensorFlow Lite.</p>
 <p>After training the CNN model, we first save the model in .h5 format where the trained weights are saved or freezes with the model. To convert the TensorFlow model to TensorFlow Lite model, we use the TocoConverter tool which converts our model to the .tflite format and this model can then be bundled with our Android app. This model is optimised to work on mobile devices and can perform tasks without requiring an internet connection.</p>
 
 <h3>Working flow :-</h3>
-//Flow diagram
+<img src="/images/working_flow.png" />
 <p>The user first opens the app, chooses a plant image, clicks a button. After clicking the button, the image is fed to the TensorFlow Lite model already bundled with the app and generates a class label. This class label is simply displayed on the device’s screen.</p>
 
 
@@ -96,30 +95,30 @@ A model is understood as a sequence or a graph of standalone, fully configurable
 <h3>Preprocessing the image</h3>
 <p>The dataset provided consists of a training set and testing set of images of plant seedlings at various growth stages. Each image has a filename that acts as its own unique ID. The dataset comprises of images of 12 plant species i.e Black-grass, Charlock, Cleavers, Common Chickweed, Common wheat, Fat Hen, Loose Silky-bent, Maize, Scentless Mayweed, Shepherds Purse, Small-flowered Cranesbill and Sugar beet.</p>
 
-//Dataset folder images
+<img src="/images/dataset_directory.png" />
 
 <p>Firstly, the images are stored in a directory structure where the directory name itself acts as the class label for a group of training images</p>
 
-//Training set folder image
+<img src="/images/training_set_directory.png" />
 
 <p>This is how a training image looks like (below)</p>
 
-//Traiuning image here
+<img src="/images/image_train.png" />
 
 <p>Using Glob library, we read these images and allot these images to the class label (directory name) they belong. This can be done by fetching the directory name from the current directory name while reading the images.</p>
 
-//Image props images
+<img src="/images/image_props.png" />
 
 <p>The images provided in the training set are of different dimensions as shown above. i.e one image is of the shape 1900 x 1900 whereas another image is of the shape 352 x 352.</p>
 <p>To make the images of consistent dimensions, we resized them to 70 x 70 pixels using the OpenCV library. So we read the image from the directory, resize them to 70 x 70 pixels and put the resulting image in an ordinary Python list. This allows us not to make any changes to the original images present in the dataset.</p>
 
 <p>Moreover, we are required to clean images as the images contained many unwanted information in the background such as barcodes, soil, etc. This hinders the plant in the image (green in colour).</p>
 
-//Unwanted background image
+<img src="/images/barcode_bg.png" />
 
 <p>Also, some plant seedlings in the images are too thin that they camouflage with the soil background (brown in colour) as shown below :</p>
 
-//Thin plant image
+<img src="/images/slim_plant.png" />
 
 <p>To solve the mentioned issues, we use a mask that fetches the greenish parts of the plant seedling in the image and blackens out the unwanted background portions.</p>
 <p>For a particular image, we convert the RGB / BRG image into HSV format as the OpenCV library performs better with images in HSV format. Then we blur the image to remove any noise present in it and finally, we create the mask removing the background from it.</p>
@@ -139,11 +138,11 @@ new[boolean] = i[boolean]
 new_train.append(new)
 ```
 
-//Plant processing stages
+<img src="/images/preprocessing.png" />
 
 <p>After properly processing the images, we get the new training images. These images are used to feed to the CNN model.</p>
 
-//Post-process image
+<img src="/images/post_process.png" />
 
 <h3>Building the CNN model</h3>
 <p>The Convolutional Neural Network models are designed to map image data to an output variable. The benefit of using CNNs is their ability to develop an internal representation of a two-dimensional image. This allows the model to learn position and scale in variant structures in the data, which is important when working with images.</p>
@@ -212,6 +211,9 @@ return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLengt
 <a href="https://www.kaggle.com/umangjpatel/plant-cnn" target="_blank">Plant CNN Jupyter Notebook</a>
 
 <h2 id="screens">Screenshots</h2>
+
+
+
 
 
 <h2 id="constraints">Constraints and Future Enhancements</h2>
