@@ -10,7 +10,9 @@ An app that classifies a plant image using a Convolutional Neural Network traine
   <li><a href="#tools_n_tech">Tools and Technology</a></li>
   <li><a href="#sys_design">System Design</a></li>
   <li><a href="#imple">Implementation</a></li>
-  
+  <li><a href="#screens">Screenshots</a></li>
+  <li><a href="#constraints">Constraints and Future Enhancements</a></li>
+  <li><a href="#refs">References</a></li>
 </ol>
 
 <h2 id="abstract">Abstract</h2>
@@ -209,4 +211,17 @@ return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLengt
 <h2>Notebook Link</h2>
 <a href="https://www.kaggle.com/umangjpatel/plant-cnn" target="_blank">Plant CNN Jupyter Notebook</a>
 
+<h2 id="screens">Screenshots</h2>
 
+
+<h2 id="constraints">Constraints and Future Enhancements</h2>
+<p>The limitation of the current working of the app is that the images are required to be pre-processed and masked before feeding it to the CNN TensorFlow Lite model. To overcome this situation, we can upload the image to a web app which can do the required pre-processing and return the resultant image back to the device.</p>
+<p>Moreover, the model can be hosted on Firebase MLKit which can improve the developers’ effort as bundling the model to the app seems a daunting task every time the .tflite model is updated. MLKit can help to update the model without requiring the users to update the app itself.</p>
+
+<h2 id="refs">References</h2>
+<ul>
+  <li><a href="https://towardsdatascience.com/building-a-convolutional-neural-network-cnn-in-keras-329fbbadc5f5">Towards Data Science Blog</a></li>
+  <li><a href="https://machinelearningmastery.com/blog/">Machine Learning Mastery Blog</a></li>
+  <li><a href="https://keras.io">Keras Documentation</a></li>
+  <li><a href="https://www.tensorflow.org/lite/">TensorFlowLite documentation</a></li>
+</ul>
