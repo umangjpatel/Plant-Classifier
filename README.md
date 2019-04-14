@@ -10,7 +10,7 @@ An app that classifies a plant image using a Convolutional Neural Network traine
   <li><a href="#tools_n_tech">Tools and Technology</a></li>
   <li><a href="#sys_design">System Design</a></li>
   <li><a href="#imple">Implementation</a></li>
-  <li><a href="#screens">Screenshots</a></li>
+  <li><a href="#screens">App Recordings</a></li>
   <li><a href="#constraints">Constraints and Future Enhancements</a></li>
   <li><a href="#refs">References</a></li>
 </ol>
@@ -210,10 +210,21 @@ return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLengt
 <h2>Notebook Link</h2>
 <a href="https://www.kaggle.com/umangjpatel/plant-cnn" target="_blank">Plant CNN Jupyter Notebook</a>
 
-<h2 id="screens">Screenshots</h2>
+<h2 id="screens">App Recordings</h2>
 
-
-
+<video width="320" autoplay>
+    <source src="/app_recordings/app_recording.webm"
+            type="video/webm">
+  Video not available...
+</video>
+<br><br>
+Screenshots
+<br>
+<img width="250" src="/app_recordings/splash_screen.png" />
+<img width="250" src="/app_recordings/first_screen.png" />
+<img width="250" src="/app_recordings/first_class.png" />
+<img width="250" src="/app_recordings/second_class.png" />
+<img width="250" src="/app_recordings/third_class.png" />
 
 
 <h2 id="constraints">Constraints and Future Enhancements</h2>
